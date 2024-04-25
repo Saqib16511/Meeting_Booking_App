@@ -1,0 +1,293 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: sans-serif; */
+    font-family: "Poppins";
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(105, 105, 105, 0.233);
+}
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.438);
+    padding-inline: 30px;
+}
+.head-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgb(21, 21, 138);
+    animation: anime 2s;
+}
+.head-left h1{
+    font-weight: 500;
+}
+@keyframes anime{
+    from{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+
+    }
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+.head-right{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    color: rgb(21, 21, 138);
+    cursor: pointer;
+}
+.profile-pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+@media(max-width:425px){
+    header{
+        padding-inline: 10px;
+    }
+    .head-left h1{
+        font-size: 25px;
+    font-weight: 500;
+    }
+    .ppdiv{
+        display: none;
+    }
+    .profile-pic{
+        display: none;
+    }
+}
+@media(max-width:320px){
+    .head-left h1{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .logo img{
+        width: 70px;
+        height: 70px;
+    }
+}
+/* Body Section */
+.body-container{
+    display: flex;
+    gap: 50px;
+    flex-grow: 1;
+}
+.left-section{
+    width: 10%;
+    display: flex;
+    overflow: hidden;
+    background-color: blue;
+    box-shadow: 1px 1px 5px rgba(0, 0, 255, 0.884);
+}
+.left-section img{
+    animation: picanime 3s infinite linear alternate;
+    flex-grow: 1;
+    flex-shrink: 0;
+    /* z-index: 1; */
+    /* width: 100%; */
+}
+@keyframes picanime{
+    from{
+        transform: translateX(-50%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+.body-title{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+}
+.body-title button{
+    padding: 1px 8px;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 255, 0.445);
+    border-radius: 5px;
+    font-weight: bold;
+    color: blue;
+    background-color: rgba(255, 255, 255, 0.712);
+    cursor: pointer;
+}
+/* Card Section */
+.cards-section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 70px;
+    row-gap: 20px;
+}
+.card-container{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    box-shadow: 1px 1px 25px rgba(69, 69, 240, 0.425);
+    background:white;
+    border-radius: 10px;
+}
+.card-container img{
+    width: 200px;
+    height: 200px;
+    margin-left: 70px;
+
+}
+.first{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    color: #494848;
+    border-top: 1px solid rgba(0, 0, 255, 0.082);
+}
+.edit i{
+    color:  rgba(105, 105, 105, 0.822);
+    cursor: pointer;
+}
+.second{
+    padding: 10px 10px;
+    font-size: 20px;
+}
+.second i{
+    color: blue
+}
+.third{
+    display: flex;
+    gap: 10px;
+    line-height: 15px;
+    padding: 10px 10px;
+}
+.third label{
+    background-color: #d2d2d2;
+    width: 40px;
+    height: 17px;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.third label::before{
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    border-radius: 100%;
+    margin: 1px;
+    transition: 0.2s;
+}
+input:checked + label{
+    background-color: blue;
+}
+input:checked + label::before{
+    transform: translateX(22px);
+}
+.third input{
+    display: none;
+}
+.third p{
+    font-size: 18px;
+}
+.discription div{
+    width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    padding: 10px 10px;
+    border-top: 1px solid rgba(0, 0, 255, 0.116);
+    background:  rgba(241, 239, 239, 0.404);
+
+}
+.fourth{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 255, 0.13);
+    padding: 15px 10px;
+}
+
+.copylink i{
+    color:  rgba(105, 105, 105, 0.822);
+    cursor: pointer;
+    color: rgb(88, 88, 243);
+}
+.copylink a{
+    text-decoration: none;
+    color: blue;
+}
+
+.delete i{
+    color: rgba(105, 105, 105, 0.822);
+    cursor: pointer;
+    padding: 0 5px;
+}
+.delete .fa-trash{
+    color: rgb(245, 95, 95);
+}
+.delete .fa-edit{
+    color: rgb(0, 0, 255);
+}
+footer{
+    text-align: center;
+    background-color: white;
+    box-shadow: 1px 1px 5px blue;
+    font-weight: 500;
+}
+/* Responsive */
+@media(max-width:1024px){
+    .cards-section{
+        grid-template-columns: repeat(2,1fr)
+    }
+    .right-section{
+        padding-block: 20px;
+    }
+}
+@media(max-width:768px){
+    .left-section{
+        display: none;
+    }
+    .cards-section{
+        column-gap: 30px;
+    }
+    .right-section{
+        padding-inline: 20px;
+    }
+}
+@media(max-width:425px){
+    .cards-section{
+        grid-template-columns: repeat(1,1fr)
+    }
+    .right-section{
+        padding-inline: 30px;
+    }
+}
+@media(max-width:375px){
+    .right-section{
+        padding-inline: 10px;
+    }
+}
+@media(max-width:320px){
+    .card-container{
+        width: 100%;
+    }
+    .right-section{
+        padding-inline: 10px;
+    }
+    .card-container img {
+        width: 158px;
+    }
+}

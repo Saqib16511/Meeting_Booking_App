@@ -1,0 +1,156 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(105, 105, 105, 0.233);
+}
+.secondary-container{
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin:0 30px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.267);
+    
+}
+@keyframes anime{
+    from{
+        opacity: 0;
+        transform: scale(1) rotateX(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+
+    }
+}
+.img-div img{
+    background-size: cover;
+    border-radius: 15px;
+}
+.right-side{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: anime 0.7s;
+
+}
+.top-title{
+    width: 100%;
+    text-align: center;
+}
+.top-title img{
+    width: 100px;
+    height: 100px;
+}
+.mid{
+    width: 100%;
+    margin: 0 30px;
+    text-align: center;
+}
+.mid-title{
+    padding: 10px 0;
+}
+.mid .title{
+    width: 100%;
+    padding: 10px 0;
+}
+.input-div{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 0 10px;
+    position: relative;
+}
+.input-div label{
+    position: absolute;
+    top: 32px;
+    left: 25px;
+    color: #888787;
+}
+.input-div input{
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background: rgba(241, 239, 239, 0.404);
+    outline: none;
+    position: relative;
+}
+.input-div input:focus + .label,
+input:valid + .label {
+    line-height: 30px;
+    transform: translate(-15px,-16px) scale(0.88);
+}
+.forget-pass{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.login-btn{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 0 10px;
+}
+.login-btn button{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background: rgba(25, 25, 245, 0.877);
+    color: white;
+}
+.signin-btn{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 0 10px;
+}
+.signin-btn button{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background:rgba(241, 239, 239, 0.404);
+    color: rgb(112, 114, 114);
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.signin-btn img{
+    font-size: 48px;
+    width: 40px;
+    height: 40px;
+}
+.bottom{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+
+
+@media (max-width:425px){
+    .left-side{
+        display: none;
+    }
+}

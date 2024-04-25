@@ -1,0 +1,12 @@
+Step 1.
+    Create a signIn Form.
+    SignIn Form Compunent =>{
+       => Two sides of form Left and right.Left side is for picture and right for a signIn form.
+       => Right Side hasn three main divs.
+       => One div is for title of signIn.
+       => second div is for two input fields.
+       => first input field is for Email and second is for Password.
+       => second div is also for two buttons one is for signin and second is for signin with google.
+       => third div is for don't remember pass and signup btn.
+
+    }
