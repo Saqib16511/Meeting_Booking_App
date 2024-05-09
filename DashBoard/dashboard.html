@@ -34,13 +34,49 @@
         </header>
         <!-- Body -->
         <div class="body-container">
+            <!-- BOOKING FORM -->
+       <div class="booking-container">
+        <div class="form-container">
+            <div class="title">
+                <h2>Booking Now</h2>
+            </div>
+            <form action="">
+            <div class="title-input">
+                <input type="text" placeholder="Title">
+            </div>
+            <div class="description">
+                <textarea name="description" id="" cols="30" rows="10" placeholder=" Write detaile about the meeting"></textarea>
+            </div>
+            <div class="duration">
+                <input type="text" placeholder="Duration">
+                <label for="">Minutes</label>
+            </div>
+            <div class="days">
+                <span>Monday <input type="checkbox"></span>
+                <span>Tuesday <input type="checkbox"></span>
+                <span>Wednesday <input type="checkbox"></span>
+                <span>Thursday <input type="checkbox"></span>
+                <span>Friday <input type="checkbox"></span>
+                <span>Saturday <input type="checkbox"></span>
+                <span>Sunday <input type="checkbox"></span>
+            </div>
+            <div class="btn">
+                <div class="cancel-add">
+                    <button class="cancelbtn">Cancel</button>
+                    <button id="add">Add</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- LEFT SECTION -->
             <div class="left-section">
                 <img src="/Work Plan/side_img.png" alt="">
             </div>
             <div class="right-section">
                 <div class="body-title">
                     <h1>Add Booking</h1>
-                    <button>+</button>
+                    <button class="add-booking">+</button>
                 </div>
                 <!-- Cards Section -->
                 <div class="cards-section">
@@ -148,5 +184,7 @@
         <!-- footer -->
         <footer>Copy Right @ 2010</footer>
     </div>
+
+    <script src="dashboard.js"></script>
 </body>
 </html>
