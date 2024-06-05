@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oswald&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Oswald&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -23,42 +24,77 @@
                 </div>
             </div>
             <div class="head-right">
+                <div class="ppdiv">Booking Cards</div>
+                <div class="sched-div">My Schedule</div>
                 <div class="profile-pic">
-                   <img src="/Work Plan/propic.jpeg" alt="">
+                   <img class="imgage" src="/Work Plan/propic.jpeg" alt="">
                 </div>
-                <div class="ppdiv"> My Profile</div>
+                <!-- SIGN OUT -->
+                <div class="signout">
+                     <div class="pic-div"><img src="/Work Plan/propic.jpeg" alt=""></div>
+                     <div class="name-div">Hi,Syed Saqib!</div>
+                     <div class="signout-button">
+                         <a href="../Authentication_Form/editpro.html">
+                             <div class="add-acc"><span><i class="fas fa-edit"></i></span>Edit Profile</div>
+                         </a>
+                         <a href="../Authentication_Form/sign_In.html">
+                             <div class="signoutbtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</div>
+                         </a>
+                     </div>
+                </div>
+                <!-- SIGN OUT END -->
                 <div class="menu-bar">
                     <i class="fa-solid fa-bars"></i>
                 </div>
+                <!-- SIDEBAR START-->
+                    <!-- <div class="closesidebar" style="font-size: 25px; padding: 20px;" ><i class="fa fa-window-close" aria-hidden="true"></i>
+                    </div> -->
+                    <!-- <div class="sidebar">
+                        <div class="sidebar-booking">Booking Cards</div>
+                        <div class="sidebar-schedule">My Schedule</div>
+                        <div class="sidebar-profile">My Profile</div>
+                        <div class="sidebar-signout">Signout</div>
+                </div> -->
+                <!-- SIDEBAR END -->
             </div>
         </header>
         <!-- Body -->
         <div class="body-container">
+             <!-- SIDEBAR START-->
+                    <!-- <div class="closesidebar" style="font-size: 25px; padding: 20px;" ><i class="fa fa-window-close" aria-hidden="true"></i>
+                    </div> -->
+                    <div class="sidebar">
+                        <div class="sidebar-booking"><span><i class="fa-solid fa-book"></i></span>Booking Cards</div>
+                        <div class="sidebar-schedule"><span><i class="fa-solid fa-calendar-days"></i></span>My Schedule</div>
+                        <div class="sidebar-profile"><span><i class="fa-solid fa-user"></i></span>My Profile</div>
+                        <div class="sidebar-signOut"><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Sign Out</div>
+                </div>
+                <!-- SIDEBAR END -->
             <!-- BOOKING FORM -->
        <div class="booking-container">
         <div class="form-container">
             <div class="title">
                 <h2>Booking Now</h2>
             </div>
-            <form action="">
+            <form id="booking-form" action="">
             <div class="title-input">
-                <input type="text" placeholder="Title">
+                <input type="text" placeholder="Title" id="gettitle">
             </div>
             <div class="description">
-                <textarea name="description" id="" cols="30" rows="10" placeholder=" Write detaile about the meeting"></textarea>
+                <textarea name="description" id="description" class="bookingdescription" cols="30" rows="10" placeholder=" Write detaile about the meeting"></textarea>
             </div>
             <div class="duration">
-                <input type="text" placeholder="Duration">
-                <label for="">Minutes</label>
+                <input type="number" placeholder="Duration" id="timeget">
+                <label id="minutestime" for="">Minutes</label>
             </div>
             <div class="days">
-                <span>Monday <input type="checkbox"></span>
-                <span>Tuesday <input type="checkbox"></span>
-                <span>Wednesday <input type="checkbox"></span>
-                <span>Thursday <input type="checkbox"></span>
-                <span>Friday <input type="checkbox"></span>
-                <span>Saturday <input type="checkbox"></span>
-                <span>Sunday <input type="checkbox"></span>
+                <span>Monday <input class="daybox" type="checkbox" value="Monday"></span>
+                <span>Tuesday <input class="daybox" type="checkbox" value="Tuesday"></span>
+                <span>Wednesday <input class="daybox" type="checkbox" value="Wednesday"></span>
+                <span>Thursday <input class="daybox" type="checkbox" value="Thursday"></span>
+                <span>Friday <input class="daybox" type="checkbox" value="Friday"></span>
+                <span>Saturday <input class="daybox" type="checkbox" value="Saturday"></span>
+                <span>Sunday <input class="daybox" type="checkbox" value="Sunday"></span>
             </div>
             <div class="btn">
                 <div class="cancel-add">
@@ -69,122 +105,134 @@
             </form>
         </div>
     </div>
+    <!-- SCHEDULE FORM START -->
+    <div class="schedule-container">
+        <div class="schedule-form">
+            <div class="schedule-title">
+                <h2>Booking Now</h2>
+            </div>
+            <form action="">
+            <div class="schedule-title-input">
+                <input type="text" placeholder="Title" id="schedule-title-input" required>
+            </div>
+            <div class="Schedule-time">
+                <input type="time" placeholder="time" id="sch-form-time" required>
+            </div>
+            <div class="schd-days">
+                <span>Monday <input class="schdaybox" type="checkbox" value="Monday" name="weeks"></span>
+                <span>Tuesday <input class="schdaybox" type="checkbox" value="Tuesday" name="weeks"></span>
+                <span>Wednesday <input class="schdaybox" type="checkbox" value="Wednesday" name="weeks"></span>
+                <span>Thursday <input class="schdaybox" type="checkbox" value="Thursday" name="weeks"></span>
+                <span>Friday <input class="schdaybox" type="checkbox" value="Friday" name="weeks"></span>
+                <span>Saturday <input class="schdaybox" type="checkbox" value="Saturday" name="weeks"></span>
+                <span>Sunday <input class="schdaybox" type="checkbox" value="Sunday" name="weeks"></span>
+            </div>
+            <div class="btn">
+                <div class="schcancel-add">
+                    <button id="schcancel-addd">Cancel</button>
+                    <button id="schadd">Add</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- SCHEDULE FORM END -->
     <!-- LEFT SECTION -->
             <div class="left-section">
                 <img src="/Work Plan/side_img.png" alt="">
             </div>
+            <!-- RIGHT SECTION -->
             <div class="right-section">
-                <div class="body-title">
-                    <h1>Add Booking</h1>
-                    <button class="add-booking">+</button>
+                <div class="right-main">
+                    <div class="body-title">
+                        <h1>Add Booking</h1>
+                        <button class="add-booking"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <!-- Cards Section -->
+                     <div class="cards-section">
+                        <!-- <div class="card-container">
+                            <img src="./meeting5.png" alt="">
+                        <div class="first">
+                            <div class="title">
+                                <h1>30 Minute Meeting</h1>
+                            </div>
+                        </div>
+                        <div class="second">
+                            <i class="fa-regular fa-clock"></i>
+                            30 minutes
+                        </div>
+                        <div class="third">
+                            <input type="checkbox" id="check">
+                            <label for="check"></label>
+                            <p>Booking on</p>
+                        </div>
+                        <div class="discription">
+                            <div>Lorem ipsum dolorid eum esusst,corrupti consectetur!</div>
+                        </div>
+                        <div class="fourth">
+                            <div class="copylink">
+                                <i class="fa-solid fa-copy"></i>
+                                <a href="">Copy link</a>
+                            </div>
+                            <div class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </div>
+                        </div> -->
+                    </div> 
                 </div>
-                <!-- Cards Section -->
-                <div class="cards-section">
-                    <div class="card-container">
-                        <img src="/Work Plan/meeting5.png" alt="">
-                       <div class="first">
-                        <div class="title">
-                            <h1>30 Minute Meeting</h1>
-                        </div>
-                       
-                       </div>
-                       <div class="second">
-                        <i class="fa-regular fa-clock"></i>
-                        30 minutes
-                       </div>
-                       <div class="third">
-                        <input type="checkbox" id="check">
-                        <label for="check"></label>
-                        <p>Booking on</p>
-                       </div>
-                       <div class="discription">
-                        <div>Lorem ipsum dolorid eum esusst,corrupti consectetur!</div>
-                       </div>
-                       <div class="fourth">
-                           <div class="copylink">
-                               <i class="fa-solid fa-copy"></i>
-                               <a href="">Copy link</a>
-                           </div>
-                        <div class="delete">
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                       </div>
-            
+            <!-- SCHEDULE SECTION -->
+                <div class="table">
+                    <div class="booking-title"><h1>Bookings</h1></div>
+                    <div class="main-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <!-- <th>Booking Type</th> -->
+                                <th>Time</th>
+                                <th>Day</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <!-- <tr>
+                                <td>30 Minutes Meeting</td>
+                                <td>30 Minutes</td>
+                                <td>Thursday</td>
+                                <td style="background-color: rgba(0, 128, 0, 0.884); border-radius: 10px;color: white;cursor: pointer">Active</td>
+                                <td style="background-color: rgba(255, 0, 0, 0.726); border-radius: 10px;color: black;cursor: pointer">Cancel</td>
+                            </tr>
+                            <tr>
+                                <td>30 Minutes Meeting</td>
+                                <td>30 Minutes</td>
+                                <td>Thursday</td>
+                                <td style="background-color: rgba(0, 128, 0, 0.884); border-radius: 10px;color: white; cursor: pointer;">Active</td>
+                                <td style="background-color: rgba(255, 0, 0, 0.726); border-radius: 10px;color: black;cursor: pointer">Cancel</td>
+                            </tr>
+                            <tr>
+                                <td>30 Minutes Meeting</td>
+                                <td>30 Minutes</td>
+                                <td>Thursday</td>
+                                <td style="background-color: rgba(0, 128, 0, 0.884); border-radius: 10px;color: white;cursor: pointer">Active</td>
+                                <td style="background-color: rgba(255, 0, 0, 0.726); border-radius: 10px;color: black;cursor: pointer">Cancel</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
                     </div>
-                    <!-- 2nd Card -->
-                    <div class="card-container">
-                        <img src="/Work Plan/meeting5.png" alt="">
-                       <div class="first">
-                        <div class="title">
-                            <h1>30 Minute Meeting</h1>
-                        </div>
-                       
-                       </div>
-                       <div class="second">
-                        <i class="fa-regular fa-clock"></i>
-                        30 minutes
-                       </div>
-                       <div class="third">
-                        <input type="checkbox" id="check">
-                        <label for="check"></label>
-                        <p>Booking on</p>
-                       </div>
-                       <div class="discription">
-                        <div>Lorem ipsum dolorid eum esusst,corrupti consectetur!</div>
-                       </div>
-                       <div class="fourth">
-                           <div class="copylink">
-                               <i class="fa-solid fa-copy"></i>
-                               <a href="">Copy link</a>
-                           </div>
-                        <div class="delete">
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                       </div>
-            
-                    </div>
-                    <!-- 3rd Card -->
-                    <div class="card-container">
-                        <img src="/Work Plan/meeting5.png" alt="">
-                       <div class="first">
-                        <div class="title">
-                            <h1>30 Minute Meeting</h1>
-                        </div>
-                       
-                       </div>
-                       <div class="second">
-                        <i class="fa-regular fa-clock"></i>
-                        30 minutes
-                       </div>
-                       <div class="third">
-                        <input type="checkbox" id="check">
-                        <label for="check"></label>
-                        <p>Booking on</p>
-                       </div>
-                       <div class="discription">
-                        <div>Lorem ipsum dolorid eum esusst,corrupti consectetur!</div>
-                       </div>
-                       <div class="fourth">
-                           <div class="copylink">
-                               <i class="fa-solid fa-copy"></i>
-                               <a href="">Copy link</a>
-                           </div>
-                        <div class="delete">
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                       </div>
-            
+                    <div class="table-div-btn">
+                        <button class="add-schedule-btn">Add Schedule</button>
                     </div>
                 </div>
-            </div>
-        </div>
+                    </div>
+                </div>
         <!-- footer -->
         <footer>Copy Right @ 2010</footer>
     </div>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="dashboard.js"></script>
-</body>
 </html>

@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.sidebar-container{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: rgba(134, 132, 132, 0.637);
+}
+.sidebar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 15px;
+    /* box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.267); */
+    padding: 10px 8px;
+    background: transparent;
+}
+.sidebar-booking,.sidebar-schedule,.sidebar-profile,.sidebar-signout{
+    /* padding-inline: 20px; */
+    text-align: center;
+    margin-block: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    color: rgb(21, 21, 138);
+    cursor: pointer;
+}
+.sidebar-booking,.sidebar-schedule,.sidebar-profile,.sidebar-signout:hover{
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+}
