@@ -238,7 +238,6 @@ profilepic.addEventListener('click',()=>{
 // CARD RENDERING
 AddBooking.addEventListener('click',(load)=>{
     load.preventDefault();
-  
     const cardSection = document.querySelector('.cards-section')
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
@@ -397,16 +396,247 @@ AddBooking.addEventListener('click',(load)=>{
     })
 });
 
-
-const api = 'http://localhost:8000/users'
+// USERS API
+const api = 'http://localhost:8000/bookings'
 
 async function fetchapi(){
     const response = await fetch(api);
     const result = response.json()
     return result
-    console.log(result)
 };
 
 fetchapi()
-.then(data=> console.log(data))
+.then(data=>{
+    data.map(element => {
+        // console.log(element);
+    const cardSection = document.querySelector('.cards-section')
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('card-container');
+    cardSection.appendChild(cardContainer);
+
+    const img = document.createElement('img');
+    img.src = './meeting5.png'
+    cardContainer.appendChild(img);
+
+    const first = document.createElement('div');
+    first.classList.add('first');
+    cardContainer.appendChild(first);
+
+    const cardtitle = document.createElement('div');
+    cardtitle.classList.add('title');
+    first.appendChild(cardtitle);
+
+    // TITTLE DIV
+    const tittleheader = document.createElement('h1');
+    cardtitle.appendChild(tittleheader);
+    const gettitle = document.querySelector('#gettitle');
+    tittleheader.textContent = element.title;
+
+    const second = document.createElement('div');
+    second.classList.add('second');
+    cardContainer.appendChild(second);
+
+    // TIME DIV
+    const clocklogo = document.createElement('i');
+    // clocklogo.classList.add('fa-regular fa-clock');
+    clocklogo.className = 'fa-regular fa-clock'
+    second.appendChild(clocklogo);
+
+    const timediv = document.createElement('div');
+    second.appendChild(timediv);
+    const timeminut = document.createElement('div');
+    second.appendChild(timeminut);
+
+    const timeget =document.querySelector("#timeget");
+    timediv.textContent = element.duration;
+
+    const minutestime = document.querySelector('#minutestime');
+    timeminut.textContent = minutestime.innerHTML
+
+    const third = document.createElement('div')
+    third.classList.add('third');
+    cardContainer.appendChild(third);
+
+    // BOOKING ON OFF BTN
+    const onoff = document.createElement('input');
+    onoff.setAttribute('type','checkbox');
+    onoff.setAttribute('id','check')
+    third.appendChild(onoff);
+    // console.log(onoff)
+
+    const inplabel = document.createElement('label');
+    inplabel.setAttribute('for','check');
+    inplabel.classList.add('switchlabel')
+    third.appendChild(inplabel);
+
+    const bookingp = document.createElement('p');
+    bookingp.textContent = 'BOOKING'
+    third.appendChild(bookingp);
+
+    const description = document.createElement('div');
+    description.classList.add('discription');
+    cardContainer.appendChild(description);
+
+    // DESCRIPTION BOX
+    const descriptdiv = document.createElement('div');
+    description.appendChild(descriptdiv);
+
+    const bookingdescription = document.querySelector('.bookingdescription');
+    descriptdiv.textContent = element.description;
+
+
+    const fourth = document.createElement('div');
+    fourth.classList.add('fourth');
+    cardContainer.appendChild(fourth);
+
+    const copylink = document.createElement('div');
+    copylink.classList.add('copylink');
+    fourth.appendChild(copylink);
+
+    const linkI = document.createElement('i');
+    linkI.className = 'fa-solid fa-copy'
+    copylink.appendChild(linkI);
+
+    // COPY LINK
+    let anchor = document.createElement('a');
+    anchor.textContent = 'Copy link';
+    copylink.appendChild(anchor);
+    anchor.style.cursor = 'pointer'
+
+    let copylinkdiv = document.createElement('div');
+    copylink.appendChild(copylinkdiv);
+    copylinkdiv.innerHTML = '/DashBoard/dashboard.html'
+    copylinkdiv.style.display = 'none'
+    // COPY CLIPBOARD
+    anchor.addEventListener('click',()=>{
+        navigator.clipboard.writeText(copylinkdiv.innerHTML)  
+        alert('Link Copied')
+    })
+
+    const deletee = document.createElement('div');
+    deletee.classList.add('delete');
+    fourth.appendChild(deletee);
+
+    const trash = document.createElement('i');
+    trash.className = 'fa-solid fa-trash';
+    deletee.appendChild(trash);
+    // DELETE CARD
+    trash.addEventListener('click',(e)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                e.target.parentElement.parentElement.parentElement.remove();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          });
+        // if(confirm('Do You Want TO Delete This Card?') == true){
+        //     e.target.parentElement.parentElement.parentElement.remove();
+        // }      
+    });
+
+    const edit = document.createElement('i');
+    edit.className ='fas fa-edit';
+    deletee.appendChild(edit);
+
+    // EDIT CARD
+    edit.addEventListener('click',(e)=>{
+        bookingContainer.style.display = 'block'
+        gettitle.value =   tittleheader.textContent;
+        timeget.value = timediv.textContent;
+        bookingdescription.value = descriptdiv.textContent;                
+            
+    });
+    const checkboxunchecked = document.querySelectorAll('.daybox')
+    bookingContainer.style.display = 'none'
+    bookingdescription.value = ''
+    timeget.value = '';
+    gettitle.value = '';
+    checkboxunchecked.forEach(e=>{
+        e.checked = false;
+    })
+    });
+})
+.catch(e=> console.log(e));
+
+// SCHEDULE API
+const sheduleapi = 'http://localhost:8000/schedules'
+
+async function schedulesapi(){
+    const response = await fetch(sheduleapi);
+    const result = response.json()
+    return result
+};
+
+schedulesapi()
+.then(data=>{
+    console.log(data)
+    data.map(item =>{
+        const tr = document.createElement('tr');
+    const tbody = document.querySelector('.tbody');
+    tbody.appendChild(tr);
+    
+    const titletd = document.createElement('td');
+    tr.appendChild(titletd);
+    titletd.textContent = item.fullname;
+    
+    const bbokingtime = document.createElement('td');
+    tr.appendChild(bbokingtime);
+    bbokingtime.textContent = item.email;
+    
+    const scheedday = document.createElement('td');
+    tr.appendChild(scheedday);
+    // let inputElements = document.querySelectorAll('.schdaybox');
+    const formattedDate = item.updated_at.slice(0, 10);
+           scheedday.textContent = formattedDate
+            console.log(formattedDate); // "2021-07-14"
+
+    const activestatus = document.createElement('td');
+    tr.appendChild(activestatus);
+    const activestatusdiv = document.createElement('button');
+    activestatus.appendChild(activestatusdiv);
+    activestatusdiv.classList.add('activestatus');
+    activestatusdiv.textContent = 'Active';
+    
+    const cancelstatus =  document.createElement('td');
+    tr.appendChild(cancelstatus);
+    const cancelstatusdiv = document.createElement('button');
+    cancelstatus.appendChild(cancelstatusdiv)
+    cancelstatusdiv.textContent = 'Cancel'
+    cancelstatusdiv.classList.add('cancelstatus');
+    schedulecontainer.style.display = 'none'
+
+cancelstatus.addEventListener('click',(e)=>{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        e.target.parentElement.parentElement.remove();
+
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        }
+      });
+});
+    })
+})
 .catch(e=> console.log(e));

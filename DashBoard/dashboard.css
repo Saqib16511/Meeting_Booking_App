@@ -309,6 +309,9 @@ header{
 .booking-title{
     padding-top: 20px;
 }
+.booking-title h1{
+    padding: 20px;
+}
 .right-section table{
     background-color: white;
     width: 100%;
@@ -327,7 +330,7 @@ table th{
 table td{
     padding: 10px 0;
     background-color:white;
-    color: #7b7b7c;
+    color: black;
     border-bottom: 2px solid rgba(0, 0, 0, 0.158);
     text-align: center;
 }
@@ -364,6 +367,7 @@ table td{
     color: white;
     cursor: pointer;
     background: linear-gradient(rgb(86, 137, 199),rgb(77, 126, 185));
+    display: none;
 }
 .table-div-btn button:hover{
     background: linear-gradient(rgb(108, 144, 189),rgb(122, 168, 224));
@@ -513,13 +517,21 @@ table td{
 }
 .body-title button{
     padding: 10px 15px;
-    font-size: 30px;
+    font-size: 22px;
     border: 1px solid rgba(0, 0, 255, 0.445);
     border-radius: 5px;
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     background: linear-gradient(rgb(150, 177, 212),rgb(161, 200, 248));
     cursor: pointer;
+}
+.add-booking{
+    display: flex;
+    gap: 10px;
+}
+.add-booking span{
+    padding-top: 2px;
+    color: rgb(48, 46, 46);
 }
 /* BOOKING FORM */
 .booking-container{
@@ -693,12 +705,23 @@ table td{
     margin-left: 70px;
 
 }
+
 .first{
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
     color: #494848;
     border-top: 1px solid rgba(0, 0, 255, 0.082);
+}
+.first .title h1{
+    width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  padding: 20px;
+  margin: 0;
+  background: white;
+  resize: horizontal;
 }
 .edit i{
     color:  rgba(105, 105, 105, 0.822);
@@ -880,11 +903,17 @@ footer{
     .booking-container{
         font-size: 12px;
     }
+    .add-booking div{
+        display: none;
+    }
 
 }
 @media(max-width:375px){
     .right-section{
         margin-inline: 12px;
+    }
+    .first .title h1{
+        width: 280px;
     }
 }
 @media(max-width:320px){
