@@ -76,15 +76,15 @@
             <div class="title">
                 <h2>Booking Now</h2>
             </div>
-            <form id="booking-form" action="">
+            <form id="booking-form" action="" method="POST">
             <div class="title-input">
-                <input type="text" placeholder="Title" id="gettitle">
+                <input type="text" placeholder="Title" name="title" id="gettitle" >
             </div>
             <div class="description">
                 <textarea name="description" id="description" class="bookingdescription" cols="30" rows="10" placeholder=" Write detaile about the meeting"></textarea>
             </div>
             <div class="duration">
-                <input type="number" placeholder="Duration" id="timeget">
+                <input type="number" placeholder="Duration" name="duration" id="timeget">
                 <label id="minutestime" for="">Minutes</label>
             </div>
             <div class="days">
@@ -99,7 +99,7 @@
             <div class="btn">
                 <div class="cancel-add">
                     <button class="cancelbtn">Cancel</button>
-                    <button id="add">Add</button>
+                    <button id="add" type="submit">Add</button>
                 </div>
             </div>
             </form>

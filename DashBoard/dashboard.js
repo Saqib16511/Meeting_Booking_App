@@ -1,4 +1,8 @@
-const addbooking = document.querySelector('.add-booking');
+// const { duration } = require("moment");
+
+// const { duration } = require("moment");
+
+const addbookingBtn = document.querySelector('.add-booking');
 const bookingContainer = document.querySelector('.booking-container');
 const cancelbtn = document.querySelector('.cancelbtn');
 const description = document.querySelector('#description');
@@ -20,7 +24,7 @@ const schformtime = document.querySelector('#sch-form-time');
 const sidebar =document.querySelector('.sidebar');
 const menubarbtn = document.querySelector('.menu-bar');
 
-addbooking.addEventListener('click',()=>{
+addbookingBtn.addEventListener('click',()=>{
     if(bookingContainer.style.display = 'none'){
         bookingContainer.style.display = 'block'
     };
@@ -236,8 +240,56 @@ profilepic.addEventListener('click',()=>{
 
                 
 // CARD RENDERING
-AddBooking.addEventListener('click',(load)=>{
-    load.preventDefault();
+
+let bookingform = document.querySelector('#booking-form');
+bookingform.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const titlevalue = document.querySelector('#gettitle').value;
+    const duevalue = document.querySelector('#timeget').value
+    const desvalue = document.querySelector('#description').value
+
+
+    // const title = titlevalue.value
+        console.log(titlevalue);
+    const formData = {
+        title: `${titlevalue}`,
+        description: `${desvalue}`,
+        duration: `${duevalue}`
+    };
+
+    // Log the form data
+    console.log(formData);
+
+    // Send the POST request with the form data
+    fetch('http://localhost:8000/booking/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response =>{
+        const abc = response.json();
+        return abc
+    })
+        
+    .then(data => {
+        console.log('Success:', data);
+        // Handle success response
+    })
+    .catch(error => {
+        console.log('Error:', error);
+        // console.error
+        // Handle error response
+    });
+
+
+
+
+
+
+
     const cardSection = document.querySelector('.cards-section')
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
@@ -369,9 +421,7 @@ AddBooking.addEventListener('click',(load)=>{
               });
             }
           });
-        // if(confirm('Do You Want TO Delete This Card?') == true){
-        //     e.target.parentElement.parentElement.parentElement.remove();
-        // }      
+
     });
 
     const edit = document.createElement('i');
@@ -393,8 +443,57 @@ AddBooking.addEventListener('click',(load)=>{
     gettitle.value = '';
     checkboxunchecked.forEach(e=>{
         e.checked = false;
-    })
+    });
+    
+
+
 });
+
+
+// bookingform.addEventListener('submit', function(event) {
+//     // event.preventDefault(); // Prevent the form from submitting the traditional way
+//     const titlevalue = document.querySelector('#gettitle');
+//     const title = titlevalue.value
+//         console.log(title)
+//     // const titlevalue = document.querySelector('#gettitle').value;
+//     //     console.log(titlevalue)
+
+//     // Create a FormData object to hold the form data
+//     // const formData = new FormData(bookingform);
+//     // console.log(formData)
+//     // Convert FormData to JSON
+//     // titlevalue.value
+//     // console.log(titlevalue.value)
+//     const data = {
+//         title: titlevalue
+//     };
+//     // console.log(data)
+//     // formData.forEach((value, key) => {
+//     //     console.log(data[key] = data[value])
+//     // });
+//     // const formData = new FormData(bookingform)
+//     // console.log(formData);
+//     // for (const [key, value] of formData.entries()) {
+//     //     data[key] = value;
+//     //     console.log(value)
+//     // }
+
+
+//     // Send the POST request using Fetch API
+//     fetch('http://localhost:8000/booking/create', { // Replace with your server URL
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Success:', data);
+//         // You can handle the success response here
+//     })
+// });
+
 
 // USERS API
 const api = 'http://localhost:8000/bookings'
@@ -408,11 +507,13 @@ async function fetchapi(){
 fetchapi()
 .then(data=>{
     data.map(element => {
-        // console.log(element);
+        // console.log(element.id);
     const cardSection = document.querySelector('.cards-section')
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
+    cardContainer.setAttribute('data-id',`${element.id}`)
     cardSection.appendChild(cardContainer);
+
 
     const img = document.createElement('img');
     img.src = './meeting5.png'
@@ -456,7 +557,7 @@ fetchapi()
     const third = document.createElement('div')
     third.classList.add('third');
     cardContainer.appendChild(third);
-
+        console.log(third)
     // BOOKING ON OFF BTN
     const onoff = document.createElement('input');
     onoff.setAttribute('type','checkbox');
@@ -517,7 +618,7 @@ fetchapi()
     deletee.classList.add('delete');
     fourth.appendChild(deletee);
 
-    const trash = document.createElement('i');
+    const trash = document.createElement('i')
     trash.className = 'fa-solid fa-trash';
     deletee.appendChild(trash);
     // DELETE CARD
@@ -540,10 +641,42 @@ fetchapi()
               });
             }
           });
-        // if(confirm('Do You Want TO Delete This Card?') == true){
-        //     e.target.parentElement.parentElement.parentElement.remove();
-        // }      
+          
+         
+
+
+// Attach event listeners to delete buttons
+document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const cardId = this.closest('.card').dataset.id;
+        deleteCard(cardId);
     });
+});
+          
+    });
+     // Function to handle card deletion
+    function deleteCard(id) {
+        fetch(`http://localhost:8000/booking/delete/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            console.log('Card deleted successfully');
+            // Remove the card from the DOM
+            const cardElement = document.querySelector(`.card[data-id="${id}"]`);
+            if (cardElement) {
+                cardElement.remove();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
 
     const edit = document.createElement('i');
     edit.className ='fas fa-edit';
@@ -580,7 +713,7 @@ async function schedulesapi(){
 
 schedulesapi()
 .then(data=>{
-    console.log(data)
+    // console.log(data)
     data.map(item =>{
         const tr = document.createElement('tr');
     const tbody = document.querySelector('.tbody');
@@ -640,3 +773,22 @@ cancelstatus.addEventListener('click',(e)=>{
     })
 })
 .catch(e=> console.log(e));
+
+
+
+const sheduleapidelete = 'http://localhost:8000/schedule/3'
+
+async function sheduledelete(){
+    const response = await fetch(sheduleapidelete);
+    const result = response.json();
+    return result
+};
+sheduledelete()
+.then(data=>{
+    console.log(data);
+    data.map(item=>{
+        
+        
+    })
+}).catch(e=> console.log(e));
+
