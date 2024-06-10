@@ -557,7 +557,7 @@ fetchapi()
     const third = document.createElement('div')
     third.classList.add('third');
     cardContainer.appendChild(third);
-        console.log(third)
+
     // BOOKING ON OFF BTN
     const onoff = document.createElement('input');
     onoff.setAttribute('type','checkbox');
@@ -618,7 +618,7 @@ fetchapi()
     deletee.classList.add('delete');
     fourth.appendChild(deletee);
 
-    const trash = document.createElement('i')
+    const trash = document.createElement('i');
     trash.className = 'fa-solid fa-trash';
     deletee.appendChild(trash);
     // DELETE CARD
@@ -641,42 +641,10 @@ fetchapi()
               });
             }
           });
-          
-         
-
-
-// Attach event listeners to delete buttons
-document.querySelectorAll('.delete-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const cardId = this.closest('.card').dataset.id;
-        deleteCard(cardId);
+        // if(confirm('Do You Want TO Delete This Card?') == true){
+        //     e.target.parentElement.parentElement.parentElement.remove();
+        // }      
     });
-});
-          
-    });
-     // Function to handle card deletion
-    function deleteCard(id) {
-        fetch(`http://localhost:8000/booking/delete/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            console.log('Card deleted successfully');
-            // Remove the card from the DOM
-            const cardElement = document.querySelector(`.card[data-id="${id}"]`);
-            if (cardElement) {
-                cardElement.remove();
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
 
     const edit = document.createElement('i');
     edit.className ='fas fa-edit';
@@ -792,3 +760,5 @@ sheduledelete()
     })
 }).catch(e=> console.log(e));
 
+
+// DELETE API 
