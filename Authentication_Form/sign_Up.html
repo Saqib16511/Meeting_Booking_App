@@ -25,20 +25,20 @@
                     <form action="">
                     <div class="name-div">
                         <div class="mid-title"> 
-                            <input type="text" name="fname" placeholder="First Name" required>
+                            <input type="text" id="fname" name="fname" placeholder="First Name" required>
                         </div>
                         <div class="bottom-title">
-                            <input type="text" name="lname" placeholder="Last Name" required>
+                            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
                         </div>
                     </div>
                             <div class="input-div">
-                                <input type="email" placeholder="Email" required>
-                                <input type="password" placeholder="Password" required>
-                                <input type="password" placeholder="Confirm Password" required>
+                                <input type="email" id="email" placeholder="Email" required>
+                                <input type="password" id="password" placeholder="Password" required>
+                                <input type="password" id="confirmpass" placeholder="Confirm Password" required>
                             </div>
                               
                                 <div class="login-btn">
-                                    <button>Sign Up</button>
+                                    <button type="submit" id="signupbtn">Sign Up</button>
                                 </div>
                                 <div class="signin-btn">
                                     <button>
@@ -65,5 +65,8 @@
         </div>
     </div>
 
+
+    <script src="sign_up.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

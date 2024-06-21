@@ -23,6 +23,10 @@ const schadd = document.querySelector('#schadd');
 const schformtime = document.querySelector('#sch-form-time');
 const sidebar =document.querySelector('.sidebar');
 const menubarbtn = document.querySelector('.menu-bar');
+const editbookingContainer = document.querySelector('.editbooking-container');
+const editgettitle = document.querySelector('#editgettitle');
+const edittimeget = document.querySelector('#edittimeget');
+const editbookingdescription = document.querySelector('.editbookingdescription');
 
 addbookingBtn.addEventListener('click',()=>{
     if(bookingContainer.style.display = 'none'){
@@ -43,6 +47,9 @@ window.addEventListener('click',(e)=>{
 
 
 })
+
+
+
 cancelbtn.addEventListener('click',(e)=>{
     e.preventDefault()
     if(bookingContainer.style.display = 'block'){
@@ -248,7 +255,7 @@ bookingform.addEventListener('submit',(e)=>{
     const titlevalue = document.querySelector('#gettitle').value;
     const duevalue = document.querySelector('#timeget').value
     const desvalue = document.querySelector('#description').value
-
+    bookingContainer.style.display = 'none'
 
     // const title = titlevalue.value
         console.log(titlevalue);
@@ -339,16 +346,16 @@ bookingform.addEventListener('submit',(e)=>{
     cardContainer.appendChild(third);
 
     // BOOKING ON OFF BTN
-    const onoff = document.createElement('input');
-    onoff.setAttribute('type','checkbox');
-    onoff.setAttribute('id','check')
-    third.appendChild(onoff);
-    // console.log(onoff)
+    // const onoff = document.createElement('input');
+    // onoff.setAttribute('type','checkbox');
+    // onoff.setAttribute('id','check')
+    // third.appendChild(onoff);
+    // // console.log(onoff)
 
-    const inplabel = document.createElement('label');
-    inplabel.setAttribute('for','check');
-    inplabel.classList.add('switchlabel')
-    third.appendChild(inplabel);
+    // const inplabel = document.createElement('label');
+    // inplabel.setAttribute('for','check');
+    // inplabel.classList.add('switchlabel')
+    // third.appendChild(inplabel);
 
     const bookingp = document.createElement('p');
     bookingp.textContent = 'BOOKING'
@@ -429,21 +436,21 @@ bookingform.addEventListener('submit',(e)=>{
     deletee.appendChild(edit);
 
     // EDIT CARD
-    edit.addEventListener('click',(e)=>{
-        bookingContainer.style.display = 'block'
-        gettitle.value =   tittleheader.textContent;
-        timeget.value = timediv.textContent;
-        bookingdescription.value = descriptdiv.textContent;                
+    // edit.addEventListener('click',(e)=>{
+    //     bookingContainer.style.display = 'block'
+    //     gettitle.value =   tittleheader.textContent;
+    //     timeget.value = timediv.textContent;
+    //     bookingdescription.value = descriptdiv.textContent;                
             
-    });
-    const checkboxunchecked = document.querySelectorAll('.daybox')
-    bookingContainer.style.display = 'none'
-    bookingdescription.value = ''
-    timeget.value = '';
-    gettitle.value = '';
-    checkboxunchecked.forEach(e=>{
-        e.checked = false;
-    });
+    // });
+    // const checkboxunchecked = document.querySelectorAll('.daybox')
+    // bookingContainer.style.display = 'none'
+    // bookingdescription.value = ''
+    // timeget.value = '';
+    // gettitle.value = '';
+    // checkboxunchecked.forEach(e=>{
+    //     e.checked = false;
+    // });
     
 
 
@@ -549,30 +556,107 @@ fetchapi()
     second.appendChild(timeminut);
 
     const timeget =document.querySelector("#timeget");
-    timediv.textContent = element.duration;
-
+    timeget.textContent = element.duration;
+        // console.log(timediv)
     const minutestime = document.querySelector('#minutestime');
     timeminut.textContent = minutestime.innerHTML
 
     const third = document.createElement('div')
     third.classList.add('third');
     cardContainer.appendChild(third);
+    third.setAttribute('data-id',element.id);
 
     // BOOKING ON OFF BTN
-    const onoff = document.createElement('input');
-    onoff.setAttribute('type','checkbox');
-    onoff.setAttribute('id','check')
+    const onoff = document.createElement('div');
+    onoff.setAttribute('data-id',element.id)
+    onoff.classList.add('track');
     third.appendChild(onoff);
-    // console.log(onoff)
+    
+    const sliderspan = document.createElement('span');
+    sliderspan.classList.add('slider')
+    sliderspan.setAttribute('data-id',element.id)
+    onoff.appendChild(sliderspan);
 
-    const inplabel = document.createElement('label');
-    inplabel.setAttribute('for','check');
-    inplabel.classList.add('switchlabel')
-    third.appendChild(inplabel);
+    if(element.active == 1){
+        sliderspan.style.left = '60%'
+        onoff.style.background = 'blue'
+        console.log('hi')
+
+    }
+    // const switchround = document.querySelectorAll('.switch')
+    // const switchbtn = document.querySelectorAll('.track');
+    // switchbtn.addEventListener('click',()=>{
+        
+      
+    // });
+    
+   
+        //   JavaScript for handling toggle functionality
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Select all toggle buttons
+//     document.querySelectorAll('.track').forEach(btn => {
+//         // Attach a change event listener to each toggle button
+//         console.log('ssss ')
+//         btn.addEventListener('change', function(e) {
+//             const test = element.id;
+//             console.log(e.target.getAttribute('data-id'))
+//             console.log('check --' + test);
+//             // Find the closest parent card element
+//             const cardElement = this.closest('.third');
+//             // console.log(cardElement)
+//             const cardId = cardElement.dataset.id;
+//             // console.log(cardId)
+//             const isChecked = this.checked;
+//             // console.log(isChecked)
+
+//             // Log the state change
+//             // console.log(`Card ${cardId} is ${isChecked ? 'ON' : 'OFF'}`);
+
+//             // Example: Update the card's background color based on the toggle state
+//             if (isChecked) {
+//                 cardElement.style.backgroundColor = '#e0f7fa';
+//             } else {
+//                 cardElement.style.backgroundColor = '';
+//             }
+
+//             // Optionally, you could make an API call here to update the server
+//             /*
+//             fetch(`http://your-api-url/cards/${cardId}`, {
+//                 method: 'PUT', // or 'PATCH' depending on your API
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({ isActive: isChecked })
+//             })
+//             .then(response => {
+//                 if (!response.ok) {
+//                     throw new Error('Network response was not ok');
+//                 }
+//                 return response.json();
+//             })
+//             .then(data => {
+//                 console.log('Card update response:', data);
+//             })
+//             .catch(error => {
+//                 console.error('Error:', error);
+//             });
+//             */
+//         });
+//     });
+// });
+      
 
     const bookingp = document.createElement('p');
     bookingp.textContent = 'BOOKING'
     third.appendChild(bookingp);
+
+    // const switchLabel = document.querySelectorAll('.switchlabel')
+    // console.log(switchLabel);
+    // switchLabel.map(item=>{
+    //     item.addEventListener('click',(e)=>{
+    //         console.log(item)
+    //     })
+    // })
 
     const description = document.createElement('div');
     description.classList.add('discription');
@@ -623,6 +707,7 @@ fetchapi()
     deletee.appendChild(trash);
     // DELETE CARD
     trash.addEventListener('click',(e)=>{
+        deletecard(element.id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -652,23 +737,158 @@ fetchapi()
 
     // EDIT CARD
     edit.addEventListener('click',(e)=>{
-        bookingContainer.style.display = 'block'
-        gettitle.value =   tittleheader.textContent;
-        timeget.value = timediv.textContent;
-        bookingdescription.value = descriptdiv.textContent;                
+        e.preventDefault()
+        // function editcard(element){}
+        const editid = element.id
+        editbookingContainer.style.display = 'block'
+        editgettitle.value =   tittleheader.textContent;
+        edittimeget.value = timediv.textContent;
+        editbookingdescription.value = descriptdiv.textContent;                
+        
+        // UPDATE API START
+        const editsavecard = document.querySelector('#editbooking-form')
+        editsavecard.addEventListener('submit',()=>{
+            cardeditapi(element.id)
             
+        })
+        function cardeditapi(item){
+            console.log(item)
+            const formData = {
+                title: `${editgettitle.value}`,
+                duration: `${edittimeget.value}`,
+                description: `${editbookingdescription.value}`
+            };
+            console.log(formData)
+            console.log(editid)
+            fetch('http://localhost:8000/booking/'+ item, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response =>{
+                const abc = response.json();
+                return abc
+            })
+            
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success response
+            })
+            .catch(error => {
+                console.log('Error:', error);
+                // console.error
+                // Handle error response
+            });
+        }
+
+        // UPDATE API END
     });
-    const checkboxunchecked = document.querySelectorAll('.daybox')
-    bookingContainer.style.display = 'none'
-    bookingdescription.value = ''
-    timeget.value = '';
-    gettitle.value = '';
-    checkboxunchecked.forEach(e=>{
-        e.checked = false;
-    })
+    
+
+        // CANCEL EDIT FORM
+        document.querySelector('#editcancelbtn').addEventListener('click',(e)=>{
+            e.preventDefault()
+            editbookingContainer.style.display = 'none'
+
+        });
+ 
+
     });
 })
 .catch(e=> console.log(e));
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+        // console.log('timeout')
+        // console.log(document.querySelectorAll('.switch'))
+        // Select all toggle buttons
+        document.querySelectorAll('.track').forEach(btn => {
+            // console.log(btn.getAttribute('data-id'))
+            // Attach a change event listener to each toggle button
+            btn.addEventListener('click', function(e) {
+                const bol = e.target.getAttribute('data-id');
+                const test = e.target;
+                const btn = e.target.children[0];
+                // console.log(bol)
+                // console.log()
+               if(btn.style.left == '60%'){
+                   btn.style.left = '0%'
+                   btn.style.transition = '0.5s'
+                   test.style.background = 'grey'
+                   test.style.transition = '0.5s'
+
+
+                   const obj ={
+                    id: bol,
+                    active: 0
+                }
+                // start
+                fetch('http://localhost:8000/booking/status',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+        .then(response =>{
+            const abc = response.json();
+            return abc
+        })
+        
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success response
+        })
+        .catch(error => {
+            console.log('Error:', error);
+            // console.error
+            // Handle error response
+        });
+        // end
+                   
+                }else{
+                    btn.style.left = '60%'
+                    localStorage.setItem('on' , `${btn.style.left == '60%'}`)
+                    btn.style.transition = '0.5s'
+                    test.style.transition = '1s'
+                    test.style.background = 'blue'
+                    const obj ={
+                        active: 1,
+                        id: bol
+                    }
+                    // start
+                    fetch('http://localhost:8000/booking/status',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            })
+            .then(response =>{
+                const abc = response.json();
+                return abc
+            })
+            
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success response
+            })
+            .catch(error => {
+                console.log('Error:', error);
+                // console.error
+                // Handle error response
+            });
+                    // end
+               }
+                
+            });
+        });
+    }, 1500);
+    
+});
 
 // SCHEDULE API
 const sheduleapi = 'http://localhost:8000/schedules'
@@ -744,21 +964,43 @@ cancelstatus.addEventListener('click',(e)=>{
 
 
 
-const sheduleapidelete = 'http://localhost:8000/schedule/3'
+// const sheduleapidelete = 'http://localhost:8000/schedule/3'
 
-async function sheduledelete(){
-    const response = await fetch(sheduleapidelete);
-    const result = response.json();
-    return result
-};
-sheduledelete()
-.then(data=>{
-    console.log(data);
-    data.map(item=>{
+// async function sheduledelete(){
+//     const response = await fetch(sheduleapidelete);
+//     const result = response.json();
+//     return result
+// };
+// sheduledelete()
+// .then(data=>{
+//     console.log(data);
+//     data.map(item=>{
         
         
-    })
-}).catch(e=> console.log(e));
+//     })
+// }).catch(e=> console.log(e));
 
 
 // DELETE API 
+function deletecard(id){
+        fetch('http://localhost:8000/booking/delete/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response =>{
+            const abc = response.json();
+            return abc
+        })
+        
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success response
+        })
+        .catch(error => {
+            console.log('Error:', error);
+            // console.error
+            // Handle error response
+        });
+}

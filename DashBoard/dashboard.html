@@ -105,6 +105,45 @@
             </form>
         </div>
     </div>
+
+    <!-- EIDT CARD START -->
+    <div class="editbooking-container">
+        <div class="editform-container">
+            <div class="edittitle">
+                <h2>Booking Now</h2>
+            </div>
+            <form id="editbooking-form" action="" method="UPDATE">
+            <div class="edittitle-input">
+                <input type="text" placeholder="Title" name="title" id="editgettitle" >
+            </div>
+            <div class="editdescription">
+                <textarea name="description" id="editdescription" class="editbookingdescription" cols="30" rows="10" placeholder=" Write detaile about the meeting"></textarea>
+            </div>
+            <div class="editduration">
+                <input type="number" placeholder="Duration" name="duration" id="edittimeget">
+                <label id="editminutestime" for="">Minutes</label>
+            </div>
+            <div class="editdays">
+                <span>Monday <input class="daybox" type="checkbox" value="Monday"></span>
+                <span>Tuesday <input class="daybox" type="checkbox" value="Tuesday"></span>
+                <span>Wednesday <input class="daybox" type="checkbox" value="Wednesday"></span>
+                <span>Thursday <input class="daybox" type="checkbox" value="Thursday"></span>
+                <span>Friday <input class="daybox" type="checkbox" value="Friday"></span>
+                <span>Saturday <input class="daybox" type="checkbox" value="Saturday"></span>
+                <span>Sunday <input class="daybox" type="checkbox" value="Sunday"></span>
+            </div>
+            <div class="editbtn">
+                <div class="editcancel-add">
+                    <button id="editcancelbtn">Cancel</button>
+                    <button id="editsave" type="submit">Save</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- EDIT CARD END -->
     <!-- SCHEDULE FORM START -->
     <div class="schedule-container">
         <div class="schedule-form">

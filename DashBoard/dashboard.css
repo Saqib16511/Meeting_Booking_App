@@ -1,21 +1,23 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* font-family: sans-serif; */
     font-family: "sanserif";
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(rgba(190, 201, 216, 0.63),rgba(149, 166, 187, 0.781));
+    background: linear-gradient(rgba(190, 201, 216, 0.63), rgba(149, 166, 187, 0.781));
 
     /* background: rgba(105, 105, 105, 0.233); */
 }
+
 /* Header */
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,32 +26,38 @@ header{
     padding-inline: 30px;
     z-index: 1;
 }
-.head-left{
+
+.head-left {
     display: flex;
     align-items: center;
     gap: 10px;
     color: rgb(21, 21, 138);
     animation: anime 2s;
 }
-.head-left h1{
+
+.head-left h1 {
     font-weight: 500;
 }
-@keyframes anime{
-    from{
+
+@keyframes anime {
+    from {
         opacity: 0;
         transform: translateX(-10%);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateX(0%);
 
     }
 }
-.logo img{
+
+.logo img {
     width: 100px;
     height: 100px;
 }
-.head-right{
+
+.head-right {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -57,37 +65,45 @@ header{
     color: rgb(21, 21, 138);
     cursor: pointer;
 }
-.sched-div{
+
+.sched-div {
     transition: text-underline-offset 300ms;
 }
-.sched-div:hover{
+
+.sched-div:hover {
     text-decoration: underline;
     text-underline-offset: 0.4em;
 }
-.ppdiv{
+
+.ppdiv {
     transition: text-underline-offset 300ms;
 }
-.head-right .ppdiv:hover{
+
+.head-right .ppdiv:hover {
     text-decoration: underline;
     text-underline-offset: 0.4em;
 }
+
 .profile-pic {
     padding: 5px 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.active{
-    background: linear-gradient(rgba(202, 219, 241, 0.63),rgba(161, 200, 248, 0.781));
+
+.active {
+    background: linear-gradient(rgba(202, 219, 241, 0.63), rgba(161, 200, 248, 0.781));
     padding: 5px 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: none;
 }
-.profile-pic img{
+
+.profile-pic img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
+
 /* SIDEBAR START */
 /* .sidebar-container{
     min-height: 100vh;
@@ -97,11 +113,11 @@ header{
     left: 0;
     background: rgb(134, 132, 132);
 } */
-.sidebar{
+.sidebar {
     position: fixed;
     top: 0%;
     left: 0%;
-    transform: translate(-50%,0%);
+    transform: translate(-50%, 0%);
     background-color: white;
     display: none;
     flex-direction: column;
@@ -110,19 +126,25 @@ header{
     padding: 20px 8px;
     /* transition: all linear 2s; */
     animation: sidebaraniem linear 0.8s;
-    background: linear-gradient(rgb(54, 84, 122),rgba(85, 116, 153, 0.562));
+    background: linear-gradient(rgb(54, 84, 122), rgba(85, 116, 153, 0.562));
     box-shadow: 2px 2px 10px rgba(80, 80, 250, 0.459);
 
 }
+
 @keyframes sidebaraniem {
-    from{
+    from {
         left: 150%;
     }
-    to{
+
+    to {
         left: 95%;
     }
 }
-.sidebar-booking,.sidebar-schedule,.sidebar-profile,.sidebar-signOut{
+
+.sidebar-booking,
+.sidebar-schedule,
+.sidebar-profile,
+.sidebar-signOut {
     /* padding-inline: 20px; */
     margin-block: 30px;
     font-weight: bold;
@@ -131,25 +153,31 @@ header{
     cursor: pointer;
     padding-left: 10px;
 }
-.sidebar-booking,.sidebar-signOut,.sidebar-schedule,.sidebar-profile, span{
+
+.sidebar-booking,
+.sidebar-signOut,
+.sidebar-schedule,
+.sidebar-profile,
+span {
     display: flex;
     gap: 8px;
 }
 
-.sidebar-signout{
+.sidebar-signout {
     text-decoration: underline;
     text-underline-offset: 0.4em;
 }
 
-.active-bar{
+.active-bar {
     padding: 5px 5px;
     border-radius: 5px;
     display: none;
     background-color: #e6e6e7;
 }
+
 /* SIDEBAR END */
-.signout{
-    background: linear-gradient(rgb(202, 219, 241),rgb(161, 200, 248));
+.signout {
+    background: linear-gradient(rgb(202, 219, 241), rgb(161, 200, 248));
     position: fixed;
     top: 10%;
     right: 1.8%;
@@ -162,35 +190,42 @@ header{
     box-shadow: 1px 1px 5px rgb(80, 80, 250);
     animation: signoutanime 1s;
 }
-.signout img{
+
+.signout img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-@keyframes signoutanime{
-    from{
+
+@keyframes signoutanime {
+    from {
         opacity: 0;
         transform: translateY(-30%);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateY(0%);
 
     }
 }
-.signout .name-div{
+
+.signout .name-div {
     padding: 5px 0;
     color: rgb(83, 82, 82);
 }
-.signout .signout-button{
+
+.signout .signout-button {
     display: flex;
     flex-direction: row;
     gap: 3px;
 }
-.signout-button a{
+
+.signout-button a {
     text-decoration: none;
 }
-.signout-button .add-acc{
+
+.signout-button .add-acc {
     background-color: white;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -198,10 +233,12 @@ header{
     font-size: 18px;
     display: flex;
 }
-.add-acc:hover{
+
+.add-acc:hover {
     background-color: #dadadb;
 }
-.add-acc span{
+
+.add-acc span {
     /* border-radius: 50%;
     background: linear-gradient(rgb(202, 219, 241),rgb(161, 200, 248));
     padding: 0px 3px;
@@ -211,130 +248,157 @@ header{
     font-size: 16px;
     margin-right: 5px;
 }
-.signout-button .signoutbtn{
+
+.signout-button .signoutbtn {
     background-color: white;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     padding: 10px 10px;
     font-size: 18px;
 }
-.signoutbtn i{
+
+.signoutbtn i {
     margin-right: 5px;
 }
-.signoutbtn:hover{
+
+.signoutbtn:hover {
     background-color: #dadadb;
 }
-.menu-bar i{
+
+.menu-bar i {
     display: none;
 }
-@media(max-width:425px){
-    header{
+
+@media(max-width:425px) {
+    header {
         padding-inline: 10px;
     }
-    .head-left h1{
+
+    .head-left h1 {
         font-size: 25px;
-    font-weight: 500;
+        font-weight: 500;
     }
-    .ppdiv{
+
+    .ppdiv {
         display: none;
     }
-    .profile-pic{
+
+    .profile-pic {
         display: none;
     }
-    .menu-bar i{
+
+    .menu-bar i {
         display: block;
     }
-    
+
 }
-@media(max-width:320px){
-    .head-left h1{
+
+@media(max-width:320px) {
+    .head-left h1 {
         font-size: 18px;
         font-weight: 500;
     }
-    .logo img{
+
+    .logo img {
         width: 70px;
         height: 70px;
     }
 }
+
 /* Body Section */
-.body-container{
+.body-container {
     display: flex;
     flex-grow: 1;
     justify-content: center;
 }
-.left-section{
+
+.left-section {
     width: 10%;
     display: flex;
     overflow: hidden;
     background-color: blue;
     box-shadow: 1px 1px 5px rgba(0, 0, 255, 0.884);
 }
-.left-section img{
+
+.left-section img {
     animation: picanime 3s infinite linear alternate;
     flex-grow: 1;
     flex-shrink: 0;
     z-index: 1;
     /* width: 100%; */
 }
-@keyframes picanime{
-    from{
+
+@keyframes picanime {
+    from {
         transform: translateX(-50%);
     }
-    to{
+
+    to {
         transform: translateX(0%);
     }
 }
+
 /* Right SECTION */
-.right-section{
+.right-section {
     width: 84%;
     margin-inline: auto;
 }
+
 /* SCHEDULE TABLE */
-.table{
+.table {
     display: none;
     animation: anime 1s;
     /* transition: 0.4s; */
 }
-@keyframes anime{
-    from{
+
+@keyframes anime {
+    from {
         opacity: 0;
         transform: translateX(30px);
     }
-    to{
+
+    to {
         opacity: 2;
         transform: translateX(0);
 
     }
 }
-.booking-title{
+
+.booking-title {
     padding-top: 20px;
 }
-.booking-title h1{
+
+.booking-title h1 {
     padding: 20px;
 }
-.right-section table{
+
+.right-section table {
     background-color: white;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
 }
-table{
+
+table {
     border-radius: 10px;
 }
-table th{
+
+table th {
     border-bottom: 1px solid rgb(204, 200, 200);
-    background-color:#1e82f5b7;
+    background-color: #1e82f5b7;
     color: white;
     padding: 10px 0;
 }
-table td{
+
+table td {
     padding: 10px 0;
-    background-color:white;
+    background-color: white;
     color: black;
     border-bottom: 2px solid rgba(0, 0, 0, 0.158);
     text-align: center;
 }
-.activestatus{
+
+.activestatus {
     background: rgba(72, 202, 107);
     border-radius: 10px;
     color: rgb(255, 255, 255);
@@ -344,8 +408,9 @@ table td{
     width: 85px;
     font-weight: bold;
 }
-.cancelstatus{
-    background-color: rgb(255, 65, 54); 
+
+.cancelstatus {
+    background-color: rgb(255, 65, 54);
     border-radius: 10px;
     border: none;
     font-weight: bold;
@@ -354,11 +419,13 @@ table td{
     color: white;
     cursor: pointer
 }
-.table-div-btn{
+
+.table-div-btn {
     text-align: center;
     padding: 30px 10px;
 }
-.table-div-btn button{
+
+.table-div-btn button {
     padding: 10px 15px;
     font-weight: bolder;
     font-size: 20px;
@@ -366,15 +433,17 @@ table td{
     border: none;
     color: white;
     cursor: pointer;
-    background: linear-gradient(rgb(86, 137, 199),rgb(77, 126, 185));
+    background: linear-gradient(rgb(86, 137, 199), rgb(77, 126, 185));
     display: none;
 }
-.table-div-btn button:hover{
-    background: linear-gradient(rgb(108, 144, 189),rgb(122, 168, 224));
+
+.table-div-btn button:hover {
+    background: linear-gradient(rgb(108, 144, 189), rgb(122, 168, 224));
 
 }
+
 /* SCHEDULE FORM */
-.schedule-container{
+.schedule-container {
     min-height: 100vh;
     width: 100%;
     position: fixed;
@@ -383,31 +452,35 @@ table td{
     display: none;
     z-index: revert-layer;
 }
-.schedule-form{
+
+.schedule-form {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     width: 35%;
     border-radius: 15px;
     box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.267);
-    background: linear-gradient(rgb(202, 219, 241),rgb(161, 200, 248));
+    background: linear-gradient(rgb(202, 219, 241), rgb(161, 200, 248));
     padding: 10px 8px;
 
 }
-.schedule-title{
+
+.schedule-title {
     text-align: center;
     padding: 10px;
 }
-.schedule-title-input{
+
+.schedule-title-input {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0px;
 }
-.schedule-title-input input{
+
+.schedule-title-input input {
     width: 100%;
     padding: 12px;
     border-radius: 4px;
@@ -415,18 +488,22 @@ table td{
     background: white;
     outline: none;
 }
-.schedule-title-input input:hover{
+
+.schedule-title-input input:hover {
     box-shadow: 1px 1px 1px blue, 1px 1px 1px blue inset;
 }
-.schedule-title-input input:focus{
+
+.schedule-title-input input:focus {
     box-shadow: 1px 1px 1px blue, 1px 1px 1px blue inset;
 }
-.Schedule-time{
+
+.Schedule-time {
     width: 95%;
     margin: 0 10px;
     padding: 10px 2px;
 }
-.Schedule-time input{
+
+.Schedule-time input {
     padding: 5px 5px;
     font-size: 20px;
     border-radius: 10px;
@@ -434,13 +511,16 @@ table td{
     background-color: white;
     outline: none;
 }
-.Schedule-time input:hover{
+
+.Schedule-time input:hover {
     box-shadow: 1px 1px 2px blue, 1px 1px 2px blue inset;
 }
-.Schedule-time input:focus{
+
+.Schedule-time input:focus {
     box-shadow: 1px 1px 2px blue, 1px 1px 2px blue inset;
 }
-.schd-days{
+
+.schd-days {
     width: 95%;
     margin: 0 10px;
     padding: 15px 3px;
@@ -448,24 +528,28 @@ table td{
     flex-wrap: wrap;
     gap: 10px;
 }
-.schd-days span{
+
+.schd-days span {
     border: none;
-    background-color:white;
+    background-color: white;
     border-radius: 6px;
     padding: 5px 5px;
     flex-shrink: 0;
     cursor: pointer;
 }
-.schd-days span:hover{
-    background-color:rgba(139, 137, 137, 0.486)
+
+.schd-days span:hover {
+    background-color: rgba(139, 137, 137, 0.486)
 }
-.btn{
+
+.btn {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0;
     text-align: end;
 }
-.schcancel-add button{
+
+.schcancel-add button {
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
@@ -474,7 +558,8 @@ table td{
     color: rgb(10, 10, 124);
     font-weight: bold;
 }
-#schadd{
+
+#schadd {
     padding: 10px 27px;
     border-radius: 10px;
     border: none;
@@ -483,31 +568,36 @@ table td{
     margin-left: 5px;
     font-weight: bold;
 }
-#schadd:hover{
+
+#schadd:hover {
     background-color: blue;
 }
-.schcancel-add button:hover{
+
+.schcancel-add button:hover {
     background-color: #dddddd;
 }
+
 /* SCHEDULE FORM END */
 
-.right-main{
+.right-main {
     display: block;
     animation: anime2 1s;
 }
-@keyframes anime2{
-    from{
+
+@keyframes anime2 {
+    from {
         opacity: 0;
         transform: translateX(30px);
     }
-    to{
+
+    to {
         opacity: 2;
         transform: translateX(0);
 
     }
 }
 
-.body-title{
+.body-title {
     display: flex;
     padding: 20px;
     align-items: center;
@@ -515,30 +605,34 @@ table td{
     justify-content: space-between;
     /* padding-left: 50px; */
 }
-.body-title button{
+
+.body-title button {
     padding: 10px 15px;
     font-size: 22px;
     border: 1px solid rgba(0, 0, 255, 0.445);
     border-radius: 5px;
     font-weight: bold;
     color: rgb(0, 0, 0);
-    background: linear-gradient(rgb(150, 177, 212),rgb(161, 200, 248));
+    background: linear-gradient(rgb(150, 177, 212), rgb(161, 200, 248));
     cursor: pointer;
 }
-.add-booking{
+
+.add-booking {
     display: flex;
     gap: 10px;
 }
-.add-booking span{
+
+.add-booking span {
     padding-top: 2px;
     color: rgb(48, 46, 46);
 }
+
 /* BOOKING FORM */
-.booking-container{
+.booking-container {
     min-height: 100vh;
     width: 100%;
     position: fixed;
-    background: linear-gradient(rgba(190, 201, 216, 0.63),rgba(149, 166, 187, 0.781));
+    background: linear-gradient(rgba(190, 201, 216, 0.63), rgba(149, 166, 187, 0.781));
     backdrop-filter: blur(10px);
     z-index: 1;
     font-size: 18px;
@@ -546,25 +640,29 @@ table td{
     animation: identifier 0.2s linear alternate;
     /* z-index: revert-layer; */
 }
-@keyframes identifier{
-    from{
+
+@keyframes identifier {
+    from {
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
-#booking-form{
+
+#booking-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.form-container{
+
+.form-container {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    background: linear-gradient(rgb(119, 172, 241),rgba(169, 188, 209, 0.562));
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgb(119, 172, 241), rgba(169, 188, 209, 0.562));
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -575,33 +673,38 @@ table td{
     padding-inline: 10px;
     padding-block: 10px;
 }
-.title{
+
+.title {
     text-align: center;
     padding: 10px;
 }
-.title-input{
+
+.title-input {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0;
 }
-.title-input input{
+
+.title-input input {
     width: 100%;
     padding: 12px;
     border-radius: 4px;
     border: 1px solid #9c9b9b;
-    background:white;
+    background: white;
     outline: blue;
     font-size: 18px;
 }
-.description{
+
+.description {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0;
 }
-.description textarea{
+
+.description textarea {
     border-radius: 4px;
     border: 1px solid #9c9b9b;
-    background:white;
+    background: white;
     width: 100%;
     outline: none;
     font-size: 18px;
@@ -609,32 +712,38 @@ table td{
     padding-top: 10px;
 
 }
+
 .ck-editor__editable_inline {
     min-height: 200px;
 }
-#minutestime{
+
+#minutestime {
     font-weight: bold;
 }
-.duration{
+
+.duration {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0;
 
 }
-.duration input{
+
+.duration input {
     width: 20%;
     padding: 12px;
     border-radius: 4px;
     border: 1px solid #9c9b9b;
-    background:white;
+    background: white;
     outline: none;
     font-size: 18px;
 
 }
-.duration input::placeholder{
+
+.duration input::placeholder {
     font-size: 16px;
 }
-.days{
+
+.days {
     width: 95%;
     margin: 0 10px;
     padding: 15px 3px;
@@ -642,21 +751,24 @@ table td{
     flex-wrap: wrap;
     gap: 10px;
 }
-.days span{
+
+.days span {
     border: none;
-    background-color:white;
+    background-color: white;
     border-radius: 6px;
     padding: 5px 5px;
     flex-shrink: 0;
     cursor: pointer;
 }
-.btn{
+
+.btn {
     width: 95%;
     margin: 0 10px;
     padding: 10px 0;
     text-align: end;
 }
-.cancel-add button{
+
+.cancel-add button {
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
@@ -666,10 +778,12 @@ table td{
     font-weight: bold;
 
 }
-.cancel-add button:hover{
+
+.cancel-add button:hover {
     background-color: #dddddd;
 }
-#add{
+
+#add {
     padding: 10px 27px;
     border-radius: 10px;
     border: none;
@@ -678,11 +792,185 @@ table td{
     margin-left: 5px;
     font-weight: bold;
 }
-#add:hover{
+
+#add:hover {
     background-color: blue;
 }
+
+/* EDIT CARD START */
+.editbooking-container {
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    background: linear-gradient(rgba(190, 201, 216, 0.63), rgba(149, 166, 187, 0.781));
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    font-size: 18px;
+    display: none;
+    animation: editidentifier 0.2s linear alternate;
+    /* z-index: revert-layer; */
+}
+
+@keyframes editidentifier {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#editbooking-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editform-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgb(119, 172, 241), rgba(169, 188, 209, 0.562));
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 562px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.267);
+    align-items: center;
+    padding-inline: 10px;
+    padding-block: 10px;
+}
+
+.edittitle {
+    text-align: center;
+    padding: 10px;
+}
+
+.edittitle-input {
+    width: 95%;
+    margin: 0 10px;
+    padding: 10px 0;
+}
+
+.edittitle-input input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background: white;
+    outline: blue;
+    font-size: 18px;
+}
+
+.editdescription {
+    width: 95%;
+    margin: 0 10px;
+    padding: 10px 0;
+}
+
+.editdescription textarea {
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background: white;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+}
+
+.ck-editor__editable_inline {
+    min-height: 200px;
+}
+
+#editminutestime {
+    font-weight: bold;
+}
+
+.editduration {
+    width: 95%;
+    margin: 0 10px;
+    padding: 10px 0;
+
+}
+
+.editduration input {
+    width: 20%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #9c9b9b;
+    background: white;
+    outline: none;
+    font-size: 18px;
+
+}
+
+.editduration input::placeholder {
+    font-size: 16px;
+}
+
+.editdays {
+    width: 95%;
+    margin: 0 10px;
+    padding: 15px 3px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.editdays span {
+    border: none;
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px 5px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.editbtn {
+    width: 95%;
+    margin: 0 10px;
+    padding: 10px 0;
+    text-align: end;
+}
+
+.editcancel-add button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: rgb(10, 10, 124);
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.editcancel-add button:hover {
+    background-color: #dddddd;
+}
+
+#editsave {
+    padding: 10px 27px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(59, 59, 241);
+    color: white;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#editsave:hover {
+    background-color: blue;
+}
+
+
+/* EDIT CARD END */
 /* Card Section */
-.cards-section{
+.cards-section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -690,248 +978,302 @@ table td{
     align-items: center;
     padding-block: 20px;
 }
-.card-container{
+
+.card-container {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     width: 350px;
     box-shadow: 1px 1px 25px rgba(69, 69, 240, 0.425);
-    background:white;
+    background: white;
     border-radius: 10px;
 }
-.card-container img{
+
+.card-container img {
     width: 200px;
     height: 200px;
     margin-left: 70px;
 
 }
 
-.first{
+.first {
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
     color: #494848;
     border-top: 1px solid rgba(0, 0, 255, 0.082);
 }
-.first .title h1{
+
+.first .title h1 {
     width: 300px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;  
-  padding: 20px;
-  margin: 0;
-  background: white;
-  resize: horizontal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 20px;
+    margin: 0;
+    background: white;
+    resize: horizontal;
 }
-.edit i{
-    color:  rgba(105, 105, 105, 0.822);
+
+.edit i {
+    color: rgba(105, 105, 105, 0.822);
     cursor: pointer;
 }
-.second{
+
+.second {
     display: flex;
     gap: 3px;
     padding: 10px 10px;
     font-size: 20px;
 }
-.second i{
+
+.second i {
     color: blue
 }
-.third{
+/* switch btn start */
+.third {
     display: flex;
     gap: 10px;
     line-height: 15px;
     padding: 10px 10px;
 }
-.third .switchlabel{
-    background-color: #d2d2d2;
-    width: 40px;
-    height: 17px;
-    border-radius: 20px;
-    cursor: pointer;
+.track{
+    background-color: gray;
+    width: 50px;
+    height: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     position: relative;
+    /* padding: 10px 30px; */
+    padding: 0;
 }
-.third .switchlabel::before{
-    content: '';
+.track:hover{
+    /* background-color: blue; */
+    /* transition: 0.7s; */
+}
+.track .slider{
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
     position: absolute;
-    background-color: #fff;
-    width: 15px;
-    height: 15px;
+    /* padding: 10px; */
+    width: 20px;
+    height: 20px;
     top: 0;
-    border-radius: 100%;
-    margin: 1px;
-    transition: 0.2s;
+    left: 0;
+    pointer-events: none;
 }
-input:checked + .switchlabel{
-    background-color: blue;
-}
-input:checked + .switchlabel::before{
-    transform: translateX(22px);
-}
-.third input{
-    display: none;
-}
-.third p{
+/* .track:hover .slider{
+    transform: translateX(40px);
+    transition: 0.5s;
+} */
+/* switch btn end */
+.third p {
     font-size: 18px;
 }
-.discription div{
+
+.discription div {
     width: 100%;
     height: 100px;
     overflow-y: scroll;
     padding: 10px 10px;
     border-top: 1px solid rgba(0, 0, 255, 0.116);
-    background:  rgba(241, 239, 239, 0.404);
+    background: rgba(241, 239, 239, 0.404);
 
 }
-.fourth{
+
+.fourth {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 255, 0.13);
     padding: 15px 10px;
 }
 
-.copylink i{
-    color:  rgba(105, 105, 105, 0.822);
+.copylink i {
+    color: rgba(105, 105, 105, 0.822);
     cursor: pointer;
     color: rgb(88, 88, 243);
 }
-.copylink a{
+
+.copylink a {
     text-decoration: none;
     color: blue;
 }
 
-.delete i{
+.delete i {
     color: rgba(105, 105, 105, 0.822);
     cursor: pointer;
     padding: 0 5px;
 }
-.delete .fa-trash{
+
+.delete .fa-trash {
     color: rgb(245, 95, 95);
 }
-.delete .fa-edit{
+
+.delete .fa-edit {
     color: rgb(0, 0, 255);
 }
-footer{
+
+footer {
     text-align: center;
     background-color: white;
     box-shadow: 1px 1px 5px blue;
     font-weight: 500;
     z-index: 1;
 }
+
 /* Responsive */
-@media(max-width:1024px){
-    .cards-section{
+@media(max-width:1024px) {
+    .cards-section {
         justify-content: center;
     }
-    .signout{
+
+    .signout {
         right: 4.4%;
         top: 12%;
     }
-    .title-input input{
+
+    .title-input input {
         font-size: 16px;
     }
-    .description textarea{
+
+    .description textarea {
         font-size: 16px;
     }
-    .duration input{
+
+    .duration input {
         font-size: 16px;
     }
-    .days{
+
+    .days {
         padding: 0;
     }
-    .booking-container{
+
+    .booking-container {
         font-size: 12px;
     }
 }
-@media(max-width:768px){
-    .left-section{
+
+@media(max-width:768px) {
+    .left-section {
         display: none;
     }
-    .cards-section{
+
+    .cards-section {
         column-gap: 30px;
     }
-    .right-section{
+
+    .right-section {
         margin-inline: 20px;
     }
 }
-@media(max-width:425px){
-    .cards-section{
-        grid-template-columns: repeat(1,1fr)
+
+@media(max-width:425px) {
+    .cards-section {
+        grid-template-columns: repeat(1, 1fr)
     }
-    .sched-div{
+
+    .sched-div {
         display: none;
     }
-    .right-section{
+
+    .right-section {
         margin-inline: auto;
     }
-    .form-container{
+
+    .form-container {
         width: 90%;
     }
-    .schedule-form{
+
+    .schedule-form {
         width: 90%;
     }
-    .main-table{
+
+    .main-table {
         overflow: scroll;
     }
-    table td{
+
+    table td {
         padding: 20px 20px;
     }
-    .sidebar{
+
+    .sidebar {
         right: 10%;
         top: 11%;
     }
-    footer{
+
+    footer {
         z-index: 1;
     }
-    .form-container{
+
+    .form-container {
         top: 41%;
     }
-    .title{
+
+    .title {
         padding: 0;
     }
-    .title-input input{
+
+    .title-input input {
         font-size: 16px;
     }
-    .description textarea{
+
+    .description textarea {
         font-size: 16px;
     }
-    .duration input{
+
+    .duration input {
         font-size: 16px;
     }
-    .days{
+
+    .days {
         padding: 0;
     }
-    .booking-container{
+
+    .booking-container {
         font-size: 12px;
     }
-    .add-booking div{
+
+    .add-booking div {
         display: none;
     }
 
 }
-@media(max-width:375px){
-    .right-section{
+
+@media(max-width:375px) {
+    .right-section {
         margin-inline: 12px;
     }
-    .first .title h1{
+
+    .first .title h1 {
         width: 280px;
     }
 }
-@media(max-width:320px){
-    .card-container{
+
+@media(max-width:320px) {
+    .card-container {
         width: 100%;
     }
-    .right-section{
+
+    .right-section {
         padding-inline: 10px;
         width: 100%;
     }
+
     .card-container img {
         width: 158px;
     }
-    .sidebar-booking,.sidebar-schedule,.sidebar-profile,.sidebar-signOut{
+
+    .sidebar-booking,
+    .sidebar-schedule,
+    .sidebar-profile,
+    .sidebar-signOut {
         width: 90%;
         padding: 0px 5px;
     }
-    .form-container{
+
+    .form-container {
         top: 43%;
     }
 }
